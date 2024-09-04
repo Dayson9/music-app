@@ -4,13 +4,7 @@ const { QComponent } = QueFlow;
 
 
 const loader = new QComponent("#loaderContainer", {
-  stylesheet: {
-    ...loaderStyles,
-    "@media and (max-width:768px)" : {
-      "div" : `background: red!important;`
-    }
-    
-  },
+  stylesheet: loaderStyles,
   data: {
     transform: "0px"
   },

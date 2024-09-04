@@ -23,7 +23,15 @@ const loaderStyles = {
     `,
     ".wave:nth-child(5)" : `
       animation-delay: 0.6s;
-    `
+    `,
+    
+  "@keyframes wave" : {
+      "0%" : "transform: translateY(0px);",
+      "100%" : "transform: translateY(-30px);"
+      },
+  "@media (max-width: 768px)" : {
+    ".wave" : `background: teal;`
+  }
     };
 
 const musicPlayerStyles ={
