@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Sleek";
+  src: url(./sleek.woff2);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1 {
+  font-family: Sleek;
+}
