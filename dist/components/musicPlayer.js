@@ -7,12 +7,12 @@ const musicPlayer = new QComponent("#music", {
   stylesheet: musicPlayerStyles,
   data: {
     transform: "91%",
-    album: "Lungu Boy",
-    imgSrc: "./images/car.jpg",
-    audioSrc: "./audios/Asake_Wave.mp3",
-    musicTitle: "Wave",
-    artistName: "Asake & Central Cee",
-    barWidth: "40%",
+    album: musicDataList[0].album,
+    imgSrc: musicDataList[0].img,
+    audioSrc: musicDataList[0].audio,
+    musicTitle: musicDataList[0].title,
+    artistName: musicDataList[0].artiste,
+    barWidth: 0,
     pausePlayIcon: "▶️",
     minutes: 0,
     seconds: 0,
@@ -31,7 +31,7 @@ const musicPlayer = new QComponent("#music", {
           </div>
           <div class='right'></div>
         </div>
-        <img src="{{ this.data.imgSrc }}" alt='Album Cover'/>
+        <img src="{{ './images/'+this.data.imgSrc }}" alt='Album Cover'/>
         <div id='controls'>
           <div class='column big'>
             <p>{{ this.data.artistName }}</p>
@@ -39,8 +39,19 @@ const musicPlayer = new QComponent("#music", {
           </div>
  
           <div id='duration'>
-            <div class='out'>
-              <div class='in' width='{{ this.data.barWidth }}' transition='.3s'></div>
+            <div class='out' onclick='{
+              const xCoord = e.clientX, width = window.innerWidth, middle = width / 2, percent = (xCoord/width)*100+3,
+              final = (xCoord >= middle ? percent+3 : percent-8);
+              
+              this.data.barWidth = final;
+              
+              const len = audio.duration, dLen = (final*len)/100, dur = calculateDuration(dLen);
+              audio.currentTime = dLen;
+
+              this.data.minutes = dur[0];
+              this.data.seconds = dur[1];
+            }'>
+              <div class='in' width='{{ this.data.barWidth+"%" }}' transition='.2s'></div>
             </div>
             <div class='row'>
               <p>{{ this.data.minutes }}:{{ this.data.seconds > 9 ? this.data.seconds : "0"+this.data.seconds }}</p>
@@ -59,6 +70,7 @@ const musicPlayer = new QComponent("#music", {
               timeUpdate = setInterval(() => {
                 this.data.seconds = this.data.seconds == 59 ? 0 : this.data.seconds + 1;
                 this.data.minutes = this.data.seconds == 0 ? this.data.minutes + 1 : this.data.minutes;
+                this.data.barWidth = (audio.currentTime/audio.duration)*100;
               }, 1000);
               } else {
                 this.data.pausePlayIcon = "▶️";
@@ -73,7 +85,7 @@ const musicPlayer = new QComponent("#music", {
            </div>
         </div>
       </div>
-      <audio src="{{ this.data.audioSrc }}" autoplay display='none' id='audio'>`
+      <audio src="{{ './audios/'+this.data.audioSrc }}" display='none' id='audio'>`
   },
   run: () => {
     setTimeout(() => {

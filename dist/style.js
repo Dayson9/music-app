@@ -106,8 +106,8 @@ const musicPlayerStyles = {
     margin: 0 auto;
   `,
   ".in" : `
-    width: 40%;
     height: 100%;
+    max-width: 100%;
     background: teal;
     border-radius: inherit;
   `,
@@ -124,4 +124,8 @@ const musicPlayerStyles = {
   `
 };
 
-export { loaderStyles, musicPlayerStyles }
+const musicListStyles = {
+  
+};
+
+export { loaderStyles, musicPlayerStyles, musicListStyles }
