@@ -1,7 +1,6 @@
-import { loaderStyles, musicPlayerStyles } from './style.js';
+import { loaderStyles } from '../style.js';
 
 const { QComponent } = QueFlow;
-
 
 const loader = new QComponent("#loaderContainer", {
   stylesheet: loaderStyles,
@@ -9,7 +8,7 @@ const loader = new QComponent("#loaderContainer", {
     transform: "0px"
   },
   template: () => {
-     return `
+    return `
     <div id="loader" transform={{"translateY("+this.data.transform+")"}}>
       <div class="wave"></div>
       <div class="wave"></div>
@@ -19,13 +18,14 @@ const loader = new QComponent("#loaderContainer", {
     </div>
      `
   },
-  
+
+  run: () => {
+    setTimeout(() => {
+      this.data.transform = "100%";
+    }, 1000);
+
+  }
+
 });
 
-loader.render();
-
-setTimeout(() =>{
-  loader.data.transform = "100%";
-}, 6000);
-
-console.log(document.querySelectorAll("style")[1].innerText);
+export { loader }
