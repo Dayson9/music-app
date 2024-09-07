@@ -32,6 +32,7 @@ const loaderStyles = {
 };
 
 const musicPlayerStyles = {
+  "div" : "box-sizing: border-box;",
   ".container" : `
     width: 100%;
     height: 100%;
@@ -50,7 +51,7 @@ const musicPlayerStyles = {
   ,
   ".row" : `
     color: white;
-    width: 100vw;
+    width: 100%;
     height: 40px;
     background: rgba(14, 11, 15, 1);
     box-sizing: border-box;
@@ -65,13 +66,13 @@ const musicPlayerStyles = {
     width: auto;
     height: 20;
     text-align: center;
-    box-sizing: border-box;
   `,
   ".column > p" : `
     margin-top: 6px;
+    margin-bottom: -2px;
   `,
   ".column > b" : `
-    
+   
   `,
   ".right" : `
     width: 10%;
@@ -79,13 +80,47 @@ const musicPlayerStyles = {
   `,
   "img" : `
     width: 200px;
-    height: 220px;
+    height: 200px;
+    transform: translateY(-15px);
   `,
   "#controls" : `
     width: 100%;
-    height: 30%;
-    border: 1px solid white;
+    height: 34%;
     color: white;
+    transform: translateY(-20px);
+  `,
+  "#duration" : `
+      width: 100%;
+      height: 27%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: space-around;
+      margin-top: 15px;
+    `,
+  ".out" : `
+    width: 90%;
+    height: 8px;
+    background: white;
+    border-radius: 4px;
+    margin: 0 auto;
+  `,
+  ".in" : `
+    width: 40%;
+    height: 100%;
+    background: teal;
+    border-radius: inherit;
+  `,
+  "#duration .row" : "width: 90%; margin: 0 auto;",
+  ".cont" : "font-size: 32px; width: 90%; margin: 0 auto;",
+  ".ring" : `
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: -5px;
+    font-size: 35px;
   `
 };
 
