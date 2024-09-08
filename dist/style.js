@@ -46,9 +46,10 @@ const musicPlayerStyles = {
   `,
   
   ".big" : `
-      font-size: 1.3em;
+      font-size: 1.1em;
     `
   ,
+  ".big b" : `margin-top: 5px;`,
   ".row" : `
     color: white;
     width: 100%;
@@ -70,9 +71,6 @@ const musicPlayerStyles = {
   ".column > p" : `
     margin-top: 6px;
     margin-bottom: -2px;
-  `,
-  ".column > b" : `
-   
   `,
   ".right" : `
     width: 10%;
@@ -106,7 +104,7 @@ const musicPlayerStyles = {
     margin: 0 auto;
   `,
   ".in" : `
-    height: 100%;
+    height: 8px;
     max-width: 100%;
     background: teal;
     border-radius: inherit;
@@ -125,7 +123,15 @@ const musicPlayerStyles = {
 };
 
 const musicListStyles = {
-  
+  ".header" : `
+    width: 100%;
+    height: 70px;
+    border-bottom: 2px solid white;
+  `,
+  "img" : `
+    width: 60px;
+    height: 60px;
+  `
 };
 
 export { loaderStyles, musicPlayerStyles, musicListStyles }

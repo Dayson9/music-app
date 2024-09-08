@@ -31,6 +31,11 @@ body {
   position: fixed;
 }
 
+#list {
+  top: 0%;
+  z-index: 0;
+}
+
 * {
   font-family: Sleek;
   transition: .5s;
