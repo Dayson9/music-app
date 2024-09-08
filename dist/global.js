@@ -1,19 +1,19 @@
-var timeUpdate;
+var timeUpdate, index = 0;
 
 const musicDataList = [
   {
     audio: "Asake_Wave.mp3",
-    img: "car.jpg",
+    img: "wave.jpeg",
     album: "Lungu Boy",
     artiste: "Asake & Central Cee",
     title: "Wave"
   },
   {
-    audio: "",
-    img: "",
-    album: "",
-    artiste: "",
-    title: ""
+    audio: "synchro_system.mp3",
+    img: "ikigai.jpeg",
+    album: "Ikigai",
+    artiste: "Olamide (feat. Pheelz, Young John & Lil Kesh",
+    title: "Synchro System"
   },
   {
     audio: "",

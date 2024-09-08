@@ -11,7 +11,7 @@ const musicPlayer = new QComponent("#music", {
     imgSrc: musicDataList[0].img,
     audioSrc: musicDataList[0].audio,
     musicTitle: musicDataList[0].title,
-    artistName: musicDataList[0].artiste,
+    artisteName: musicDataList[0].artiste,
     barWidth: 0,
     pausePlayIcon: "▶️",
     minutes: 0,
@@ -34,7 +34,7 @@ const musicPlayer = new QComponent("#music", {
         <img src="{{ './images/'+this.data.imgSrc }}" alt='Album Cover'/>
         <div id='controls'>
           <div class='column big'>
-            <p>{{ this.data.artistName }}</p>
+            <p>{{ this.data.artisteName }}</p>
             <b>{{ this.data.musicTitle }}</b>
           </div>
  
@@ -47,7 +47,9 @@ const musicPlayer = new QComponent("#music", {
               
               const len = audio.duration, dLen = (final*len)/100, dur = calculateDuration(dLen);
               audio.currentTime = dLen;
-
+              if (this.data.pausePlayIcon = "| |") {
+                audio.play();
+              }
               this.data.minutes = dur[0];
               this.data.seconds = dur[1];
             }'>
@@ -80,7 +82,16 @@ const musicPlayer = new QComponent("#music", {
             }' class='ring'>
               <b>{{ this.data.pausePlayIcon }}</b>
             </div>
-            <b>⏭️</b>
+            <b onclick='{
+            index = index === musicDataList.length - 1 ? 0 : index + 1;
+            
+            this.data.album = musicDataList[index].album;
+            this.data.imgSrc = musicDataList[index].img;
+             this.data.audioSrc = musicDataList[index].audio;
+             this.data.musicTitle = musicDataList[index].title;
+             this.data.artisteName = musicDataList[index].artiste;
+              
+            }'>⏭️</b>
             <b>🔀</b>
            </div>
         </div>

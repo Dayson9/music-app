@@ -79,8 +79,8 @@ const musicPlayerStyles = {
     height: 100%;
   `,
   "img" : `
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     transform: translateY(-15px);
   `,
   "#controls" : `
