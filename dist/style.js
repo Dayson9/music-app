@@ -165,6 +165,7 @@ const bottomBarStyles = {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    position: fixed;
   `,
   "img" : `
     width: 50px;
