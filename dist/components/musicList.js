@@ -6,14 +6,14 @@ const musicList = new Template("#list", musicListStyles,
   ({ i }) => {
     if(i === 0)
     return `
-        <div id='container' color='white' onclick='playMusic({{ i }})' margin-top='60px'>
+        <div id='container' color='white' onclick='playMusic({{ i }})' margin-top='50px'>
             <img src='./images/{{ src }}'/>
             <div class='info'>
               <p>{{ musicArtist }}</p>
               <b>{{ musicTitle }}</b>
             </div>
         </div>
-        <div background='grey' class='hr'></div>'`;
+        <div background='grey' class='hr'></div>`;
     
     
     return `
@@ -24,7 +24,7 @@ const musicList = new Template("#list", musicListStyles,
               <b>{{ musicTitle }}</b>
             </div>
         </div>
-        <div background='grey' class='hr'></div>'`;
+        <div background='grey' class='hr'></div>`;
   });
 
 export { musicList }
