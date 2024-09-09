@@ -14,9 +14,14 @@ music = musicPlayer;
 // Make bottomBar available globally 
 bottom = bottomBar;
 
-musicList.renderWith({
-  i: 0,
-  src: "wave.jpeg",
-  musicArtist: "Asake & Central Cee",
-  musicTitle: "Wave"
-})
+
+
+musicDataList.forEach((item, i) => {
+  musicList.renderWith({
+    i: 0,
+    src: "wave.jpeg",
+    musicArtist: "Asake & Central Cee",
+    musicTitle: "Wave"
+  });
+
+});

@@ -133,6 +133,7 @@ const musicListStyles = {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    margin-top: 5px;
   `,
   "img" : `
     width: 50px;
