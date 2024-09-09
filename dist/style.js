@@ -118,6 +118,7 @@ const musicListStyles = {
     width: 100%;
     height: 40px;
     border-bottom: 1px solid grey;
+    text-align: center;
   `,
   "img" : `
     width: 60px;
