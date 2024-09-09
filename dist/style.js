@@ -116,7 +116,7 @@ const musicPlayerStyles = {
 const musicListStyles = {
   ".header" : `
     width: 100%;
-    height: 40px;
+    height: 50px;
     background: inherit;
     border-bottom: 1px solid grey;
     display: flex;

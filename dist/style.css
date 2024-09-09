@@ -33,6 +33,10 @@ body {
   top: 0;
 }
 
+#music {
+  padding-top: 10px;
+}
+
 #list {
   top: 0%;
   z-index: 0;
