@@ -11,7 +11,8 @@ const musicList = new Template("#list", musicListStyles,
               <p>{{ musicArtist }}</p>
               <b>{{ musicTitle }}</b>
             </div>
-        </div>`;
+        </div>
+        <div background='grey' class='hr'></div>'`;
   });
 
 export { musicList }

@@ -127,8 +127,6 @@ const musicListStyles = {
     width: 100%;
     height: 80px;
     background: inherit;
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -144,6 +142,10 @@ const musicListStyles = {
     height: 100%;
     font-size: 0.8em;
   `,
+  ".hr" : `
+    width: 100%;
+    height: 1px;
+  `
 };
 
 const bottomBarStyles = {
