@@ -16,7 +16,7 @@ bottom = bottomBar;
 
 musicList.renderWith({
   i: 0,
-  src: "./images/wave.jpeg",
+  src: "wave.jpeg",
   musicArtist: "Asake & Central Cee",
   musicTitle: "Wave"
 })
