@@ -123,7 +123,8 @@ const musicListStyles = {
     justify-content: center;
     align-items: center;
     position: fixed;
-    too: 0;
+    top: 0;
+    color: white;
   `,
   "img" : `
     width: 60px;
@@ -157,7 +158,7 @@ const musicListStyles = {
 const bottomBarStyles = {
   "#container" : `
     width: 100%;
-    height: 14%;
+    height: 70px;
     background: inherit;
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
@@ -166,6 +167,7 @@ const bottomBarStyles = {
     justify-content: space-around;
     align-items: center;
     position: fixed;
+    bottom: -1px;
   `,
   "img" : `
     width: 50px;

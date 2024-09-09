@@ -25,7 +25,7 @@ body {
   z-index: 1;
 }
 
-#music, #list, #bottom-bar {
+#music, #list {
   width: 100%;
   height: 100vh;
   background: rgba(14, 11, 15, 1);
@@ -41,7 +41,11 @@ body {
 }
 
 #bottom-bar{
-  transform: translateY(76%);
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+  background: rgba(14, 11, 15, 1);
 }
 
  .ring {
