@@ -117,6 +117,7 @@ const musicListStyles = {
   ".header" : `
     width: 100%;
     height: 40px;
+    background: inherit;
     border-bottom: 1px solid grey;
     display: flex;
     justify-content: center;
