@@ -16,12 +16,12 @@ bottom = bottomBar;
 
 
 
-musicDataList.forEach((item, i) => {
+musicDataList.forEach(({img, audio, artiste, title }, i) => {
   musicList.renderWith({
-    i: 0,
-    src: "wave.jpeg",
-    musicArtist: "Asake & Central Cee",
-    musicTitle: "Wave"
+    i: i,
+    src: img,
+    musicArtist: artiste,
+    musicTitle: title
   });
 
 });
