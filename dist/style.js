@@ -110,28 +110,63 @@ const musicPlayerStyles = {
     border-radius: inherit;
   `,
   "#duration .row" : "width: 90%; margin: 0 auto;",
-  ".cont" : "font-size: 32px; width: 90%; margin: 0 auto;",
-  ".ring" : `
-    border-radius: 50%;
-    border: 2px solid white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: -5px;
-    font-size: 35px;
-  `
+  ".cont" : "font-size: 32px; width: 90%; margin: 0 auto;"
 };
 
 const musicListStyles = {
   ".header" : `
     width: 100%;
-    height: 70px;
-    border-bottom: 2px solid white;
+    height: 40px;
+    border-bottom: 1px solid grey;
   `,
   "img" : `
     width: 60px;
     height: 60px;
-  `
+  `,
+  "#container" : `
+    width: 100%;
+    height: 80px;
+    background: inherit;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  `,
+  "img" : `
+    width: 50px;
+    height: 50px;
+  `,
+  ".info" : `
+    width: 60%;
+    height: 100%;
+    font-size: 0.8em;
+  `,
 };
 
-export { loaderStyles, musicPlayerStyles, musicListStyles }
+const bottomBarStyles = {
+  "#container" : `
+    width: 100%;
+    height: 14%;
+    background: inherit;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  `,
+  "img" : `
+    width: 50px;
+    height: 50px;
+  `,
+  ".info" : `
+    width: 60%;
+    height: 100%;
+    font-size: 0.8em;
+  `,
+};
+
+
+export { loaderStyles, musicPlayerStyles, musicListStyles, bottomBarStyles }

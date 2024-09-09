@@ -9,7 +9,7 @@ const loader = new QComponent("#loaderContainer", {
   },
   template: () => {
     return `
-    <div id="loader" transform={{"translateY("+this.data.transform+")"}}>
+    <div id="loader" transform="translateY({{ this.data.transform }})">
       <div class="wave"></div>
       <div class="wave"></div>
       <div class="wave"></div>

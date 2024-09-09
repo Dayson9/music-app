@@ -3,10 +3,10 @@ import { musicPlayerStyles } from '../style.js';
 const { QComponent } = QueFlow;
 
 
-const musicPlayer = new QComponent("#music", {
+var musicPlayer = new QComponent("#music", {
   stylesheet: musicPlayerStyles,
   data: {
-    transform: "91%",
+    transform: "100%",
     album: musicDataList[0].album,
     imgSrc: musicDataList[0].img,
     audioSrc: musicDataList[0].audio,
@@ -22,8 +22,8 @@ const musicPlayer = new QComponent("#music", {
     return `
       <div class='container' transform='{{ "translateY("+this.data.transform+")" }}'>
         <div class='row'>
-          <svg width='20' height='17' onclick="this.data.transform = ( this.data.transform == '91%' ? '0%' : '91%')">
-            <polyline points="0,0 10,10 20,0" stroke='white' stroke-width='2.5'/>
+          <svg width='20' height='17' onclick="slide(1);">
+            <polyline points="0,0 10,10 20,0" stroke='white' stroke-width='2'/>
           </svg>
           <div class='column' font-size='0.9em'>
             <p>FROM THE ALBUM</p>
@@ -49,17 +49,11 @@ const musicPlayer = new QComponent("#music", {
           </div> 
           <div class='row cont'>
             <b>•••</b>
-            <b onclick='{
-              nextPrev(-1);
-            }'>⏮️</b>
-            <div width='60' height='60' onclick='{
-                updateTiming();
-            }' class='ring' id='pp'>
+            <b onclick='nextPrev(-1)'>⏮️</b>
+            <div width='60' height='60' onclick='pausePlay()' class='ring' id='pp'>
               <b>{{ this.data.pausePlayIcon }}</b>
             </div>
-            <b onclick='{
-              nextPrev(1);
-            }'>⏭️</b>
+            <b onclick='nextPrev(1)'>⏭️</b>
             <b>🔀</b>
            </div>
         </div>
@@ -68,6 +62,9 @@ const musicPlayer = new QComponent("#music", {
   run: () => {
     setTimeout(() => {
       this.data.transform = "0%";
+      
+      const dur = calculateDuration(audio.duration);
+      this.data.audioLen = dur[0] + ":" + (dur[1] > 9 ? dur[1] : "0" + dur[1]);
     }, 1800);
 
   }

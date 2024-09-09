@@ -4,9 +4,14 @@ const { Template } = QueFlow;
 
 const musicList = new Template("#list", musicListStyles,
   () => {
-    return `<div class='list-container'>
-              <img src={{src}} />
-            </div>'`;
+    return `
+      <div id='container' color='white' onclick='playMusic({{ i }})'>
+            <img src='./images/{{ src }}'/>
+            <div class='info'>
+              <p>{{ musicArtist }}</p>
+              <b>{{ musicTitle }}</b>
+            </div>
+        </div>`;
   });
 
 export { musicList }

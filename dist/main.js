@@ -1,14 +1,22 @@
 import { musicPlayer } from './components/musicPlayer.js';
 import { loader } from './components/loader.js';
 import { musicList } from './components/musicList.js';
+import { bottomBar } from './components/bottomBar.js';
 
 
 loader.render();
 musicPlayer.render();
+bottomBar.render();
 
-// Make musicPlayer  variable available globally 
+// Make musicPlayer available globally 
 music = musicPlayer;
 
+// Make bottomBar available globally 
+bottom = bottomBar;
+
 musicList.renderWith({
-  src: "./images/wave.jpeg"
+  i = 0,
+  src: "./images/wave.jpeg",
+  musicArtist: "Asake & Central Cee",
+  musicTitle: "Wave"
 })

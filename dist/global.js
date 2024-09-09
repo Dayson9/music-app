@@ -1,4 +1,4 @@
-var timeUpdate, music, index = 0,
+var timeUpdate, music, bottom, index = 0,
   audio = new Audio("./audios/Asake_Wave.mp3");
 
 const musicDataList = [
@@ -58,6 +58,14 @@ function calculateDuration(seconds) {
   return [minutes, secs];
 }
 
+const slide = (i) => {
+  music.element.style.transform = i === 1 ? 'translateY(100%)' : 'translateY(0%)';
+
+  bottom.data.src = musicDataList[index].img;
+  bottom.data.musicArtist = musicDataList[index].artiste;
+  bottom.data.musicTitle = musicDataList[index].title;
+}
+
 const update = () => {
   music.data.barWidth = (audio.currentTime / audio.duration) * 100;
   timeUpdate = setInterval(() => {
@@ -70,42 +78,27 @@ const update = () => {
 function nextPrev(num) {
   music.data.seconds = 0;
   music.data.minutes = 0;
+  let i;
+
   if (num === 1) {
-    index = index === musicDataList.length - 1 ? 0 : index + 1;
+    i = index === musicDataList.length - 1 ? 0 : index + 1;
   } else {
-    index = index === 0 ? musicDataList.length - 1 : index - 1;
+    i = index === 0 ? musicDataList.length - 1 : index - 1;
   }
 
-  music.data.album = musicDataList[index].album;
-  music.data.imgSrc = musicDataList[index].img;
-  audio.src = "./audios/" + musicDataList[index].audio;
-  music.data.musicTitle = musicDataList[index].title;
-  music.data.artisteName = musicDataList[index].artiste;
-
-  music.data.pausePlayIcon = "| |";
-  clearInterval(timeUpdate);
-
-  setTimeout(() => {
-    const dur = calculateDuration(audio.duration);
-    music.data.audioLen = dur[0] + ":" + (dur[1] > 9 ? dur[1] : "0" + dur[1]);
-    audio.play();
-    update();
-  }, 150);
+  playMusic(i);
 }
 
 
-function updateTiming() {
-
-  const dur = calculateDuration(audio.duration);
-
-  music.data.audioLen = dur[0] + ":" + (dur[1] > 9 ? dur[1] : "0" + dur[1]);
-
-  if (music.data.pausePlayIcon == "▶️") {
+function pausePlay() {
+  if (music.data.pausePlayIcon === "▶️") {
     music.data.pausePlayIcon = "| |";
+    bottom.data.pausePlayIcon = "| |";
     audio.play();
     update();
   } else {
     music.data.pausePlayIcon = "▶️";
+    bottom.data.pausePlayIcon = "▶️";
     audio.pause();
     clearInterval(timeUpdate);
   }
@@ -115,8 +108,8 @@ function seek(e) {
   const xCoord = e.clientX,
     width = window.innerWidth,
     middle = width / 2,
-    percent = ((xCoord / width) * 100) + 3,
-    final = (xCoord >= middle ? percent + 3 : percent - 8);
+    percent = ((xCoord / width) * 100),
+    final = (xCoord >= middle ? percent + 3 : percent - 5);
 
   music.data.barWidth = final;
 
@@ -124,19 +117,45 @@ function seek(e) {
     dLen = (final * len) / 100,
     dur = calculateDuration(dLen);
   audio.currentTime = dLen;
-  if (music.data.pausePlayIcon = "| |") {
+
+  if (music.data.pausePlayIcon === "| |") {
     audio.play();
+    clearInterval(timeUpdate);
+    update();
   }
+
   music.data.minutes = dur[0];
   music.data.seconds = dur[1];
 
   const duration = calculateDuration(audio.duration);
   music.data.audioLen = duration[0] + ":" + (duration[1] > 9 ? duration[1] : "0" + duration[1]);
+}
 
+function playMusic(i) {
+  index = i;
+  music.data.album = musicDataList[index].album;
+  music.data.imgSrc = musicDataList[index].img;
+  audio.src = "./audios/" + musicDataList[index].audio;
+  music.data.musicTitle = musicDataList[index].title;
+  music.data.artisteName = musicDataList[index].artiste;
+
+  bottom.data.src = musicDataList[index].img;
+  bottom.data.musicArtist = musicDataList[index].artiste;
+  bottom.data.musicTitle = musicDataList[index].title;
+
+  music.data.pausePlayIcon = "| |";
+  bottom.data.pausePlayIcon = "▶️";
   clearInterval(timeUpdate);
-  update();
+  
+  setTimeout(() => {
+    const dur = calculateDuration(audio.duration);
+    music.data.audioLen = dur[0] + ":" + (dur[1] > 9 ? dur[1] : "0" + dur[1]);
+    bottom.data.pausePlayIcon = "| |";
+    audio.play();
+    update();
+  }, 150);
 }
 
-audio.onended = () => {
-  nextPrev(1);
-}
+
+// Whenever music ends, play the next one.
+audio.onended = () => nextPrev(1);

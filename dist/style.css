@@ -12,6 +12,7 @@ body {
   background: #1B1C21;
 }
 
+
 #loader {
   width: 100vw;
   height: 100vh;
@@ -24,11 +25,12 @@ body {
   z-index: 1;
 }
 
-#music, #list {
+#music, #list, #bottom-bar {
   width: 100%;
   height: 100vh;
   background: rgba(14, 11, 15, 1);
   position: fixed;
+  top: 0;
 }
 
 #list {
@@ -36,17 +38,21 @@ body {
   z-index: 0;
 }
 
+#bottom-bar{
+  transform: translateY(76%);
+}
+
+ .ring {
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: -5px;
+    font-size: 35px;
+  }
+
 * {
   font-family: Sleek;
   transition: .5s;
-}
-
-@keyframes wave {
-  0% {
-    transform: translateY(0px);
-  }
-
-  100% {
-    transform: translateY(-30px);
-  }
 }
