@@ -6,7 +6,7 @@ const musicList = new Template("#list", musicListStyles,
   ({ i }) => {
     if(i === 0)
     return `
-        <div id='container' color='white' onclick='playMusic({{ i }})' margin-top='100%'>
+        <div id='container' color='white' onclick='playMusic({{ i }})' margin-top='60px'>
             <img src='./images/{{ src }}'/>
             <div class='info'>
               <p>{{ musicArtist }}</p>
