@@ -28,18 +28,17 @@ const update = () => {
 
 const animate = (condition) => {
   if (condition) {
+    clearInterval(animation);
     animation = setInterval(() => {
       let c = colors.indexOf(music.data.borderColor);
       music.data.borderColor = c === colors.length - 1 ? colors[0] : colors[c + 1];
-    }, 650);
+    }, 700);
   } else {
     clearInterval(animation);
   }
 }
 
 function nextPrev(num) {
-  music.data.seconds = 0;
-  music.data.minutes = 0;
   let i;
 
   if (num === 1) {
@@ -81,7 +80,7 @@ function seek(e) {
 
   const len = audio.duration,
     dLen = (final * len) / 100,
-    dur = calculateDuration(dLen);
+    [mins, secs] = calculateDuration(dLen);
   audio.currentTime = dLen;
 
   if (music.data.pausePlayIcon === "| |") {
@@ -90,14 +89,16 @@ function seek(e) {
     update();
   }
 
-  music.data.minutes = dur[0];
-  music.data.seconds = dur[1];
+  music.data.minutes = mins;
+  music.data.seconds = secs;
 
-  const duration = calculateDuration(audio.duration);
-  music.data.audioLen = duration[0] + ":" + (duration[1] > 9 ? duration[1] : "0" + duration[1]);
+  const [minutes, seconds] = calculateDuration(audio.duration);
+  music.data.audioLen = minutes + ":" + (seconds > 9 ? seconds : "0" + seconds);
 }
 
 function playMusic(i) {
+  music.data.seconds = 0;
+  music.data.minutes = 0;
   index = i;
   music.data.album = musicDataList[index].album;
   music.data.imgSrc = musicDataList[index].img;
@@ -114,8 +115,8 @@ function playMusic(i) {
   clearInterval(timeUpdate);
 
   setTimeout(() => {
-    const dur = calculateDuration(audio.duration);
-    music.data.audioLen = dur[0] + ":" + (dur[1] > 9 ? dur[1] : "0" + dur[1]);
+    const [minutes, seconds] = calculateDuration(audio.duration);
+    music.data.audioLen = minutes + ":" + (seconds > 9 ? seconds : "0" + seconds);
     bottom.data.pausePlayIcon = "| |";
     audio.play();
     update();
@@ -124,7 +125,7 @@ function playMusic(i) {
 
 function vibrateDevice() {
   if (navigator.vibrate) {
-    navigator.vibrate(25); // Vibrate for 1 second
+    navigator.vibrate([25, 25, 25]); // Vibrate 25ms 3 times in a row
   } else {
     console.log("Your browser does not support the vibration API.");
   }
