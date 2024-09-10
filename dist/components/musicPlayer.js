@@ -16,7 +16,8 @@ var musicPlayer = new QComponent("#music", {
     pausePlayIcon: "▶️",
     minutes: 0,
     seconds: 0,
-    audioLen: "0:00"
+    audioLen: "0:00",
+    borderColor: colors[0]
   },
   template: () => {
     return `
@@ -31,7 +32,7 @@ var musicPlayer = new QComponent("#music", {
           </div>
           <div class='right'></div>
         </div>
-        <img src="{{ './images/'+this.data.imgSrc }}" alt='Album Cover'/>
+        <img src="{{ './images/'+this.data.imgSrc }}" alt='Album Cover' outline='4px solid {{ this.data.borderColor }}' border-radius='5px'/>
         <div id='controls'>
           <div class='column big'>
             <p>{{ this.data.artisteName }}</p>
@@ -40,7 +41,7 @@ var musicPlayer = new QComponent("#music", {
  
           <div id='duration'>
             <div class='out' onclick='seek(e);'>
-              <div class='in' width='{{ this.data.barWidth+"%" }}' transition='.2s'></div>
+              <div class='in' width='{{ this.data.barWidth+"%" }}' background='{{ this.data.borderColor }}'></div>
             </div>
             <div class='row'>
               <p>{{ this.data.minutes }}:{{ this.data.seconds > 9 ? this.data.seconds : "0"+this.data.seconds }}</p>
@@ -62,11 +63,11 @@ var musicPlayer = new QComponent("#music", {
   run: () => {
     setTimeout(() => {
       this.data.transform = "0%";
-      
+
       const dur = calculateDuration(audio.duration);
       this.data.audioLen = dur[0] + ":" + (dur[1] > 9 ? dur[1] : "0" + dur[1]);
     }, 1800);
-
+    
   }
 });
 

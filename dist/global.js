@@ -1,5 +1,8 @@
 var timeUpdate, music, bottom, index = 0,
+  animation,
   audio = new Audio("./audios/Asake_Wave.mp3");
+
+const colors = ["wheat", "aliceblue", "skyblue", "cornflowerblue", "lightblue", "dodgerblue", "crimson", "red", "orangered", "orange", "gold", "yellow", "lightyellow", "green", "lightgreen", "lemon", "cyan", "skyblue", "lightblue", "cornflowerblue", "dodgerblue", "pink", "orchid", "hotpink", "purple", "darkorchid", "indigo", "violet"];
 
 const musicDataList = [
   {
@@ -75,6 +78,17 @@ const update = () => {
   }, 1000);
 }
 
+const animate = (condition) => {
+  if (condition) {
+    animation = setInterval(() => {
+      let c = colors.indexOf(music.data.borderColor);
+      music.data.borderColor = c === colors.length - 1 ? colors[0] : colors[c + 1];
+    }, 650);
+  } else {
+    clearInterval(animation);
+  }
+}
+
 function nextPrev(num) {
   music.data.seconds = 0;
   music.data.minutes = 0;
@@ -87,6 +101,7 @@ function nextPrev(num) {
   }
 
   playMusic(i);
+  animate(true);
 }
 
 
@@ -95,12 +110,14 @@ function pausePlay() {
     music.data.pausePlayIcon = "| |";
     bottom.data.pausePlayIcon = "| |";
     audio.play();
+    animate(true);
     update();
   } else {
     music.data.pausePlayIcon = "▶️";
     bottom.data.pausePlayIcon = "▶️";
     audio.pause();
     clearInterval(timeUpdate);
+    animate(false);
   }
 }
 
@@ -146,7 +163,7 @@ function playMusic(i) {
   music.data.pausePlayIcon = "| |";
   bottom.data.pausePlayIcon = "▶️";
   clearInterval(timeUpdate);
-  
+
   setTimeout(() => {
     const dur = calculateDuration(audio.duration);
     music.data.audioLen = dur[0] + ":" + (dur[1] > 9 ? dur[1] : "0" + dur[1]);

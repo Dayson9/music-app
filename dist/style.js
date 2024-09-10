@@ -80,6 +80,7 @@ const musicPlayerStyles = {
     width: 250px;
     height: 250px;
     transform: translateY(-15px);
+    border: 4px solid rgba(14, 11, 15, 1);
   `,
   "#controls" : `
     width: 100%;
