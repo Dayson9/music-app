@@ -67,6 +67,11 @@ const slide = (i) => {
   bottom.data.src = musicDataList[index].img;
   bottom.data.musicArtist = musicDataList[index].artiste;
   bottom.data.musicTitle = musicDataList[index].title;
+  
+  if (i === -1) {
+    vibrateDevice();
+  }
+  
 }
 
 const update = () => {
@@ -176,7 +181,7 @@ function playMusic(i) {
 
 function vibrateDevice() {
   if (navigator.vibrate) {
-    navigator.vibrate(30); // Vibrate for 1 second
+    navigator.vibrate(25); // Vibrate for 1 second
   } else {
     console.log("Your browser does not support the vibration API.");
   }
