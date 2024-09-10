@@ -19,8 +19,8 @@ var bottomBar = new QComponent("#bottom-bar", {
       }'>
         <img src='./images/{{ this.data.src }}' class='img'/>
         <div class='info'>
-          <p>{{ this.data.musicArtist }}</p>
-          <b>{{ this.data.musicTitle }}</b>
+          <p class='p'>{{ this.data.musicArtist }}</p>
+          <b class='b'>{{ this.data.musicTitle }}</b>
         </div>
         <div class='pausePlay'>
           <div width='50' height='50' onclick='pausePlay()' class='ring'>
