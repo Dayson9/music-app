@@ -32,8 +32,8 @@ const loaderStyles = {
 };
 
 const musicPlayerStyles = {
-  "div" : "box-sizing: border-box;",
-  ".container" : `
+  "div": "box-sizing: border-box;",
+  ".container": `
     width: 100%;
     height: 100%;
     background: transparent;
@@ -44,13 +44,12 @@ const musicPlayerStyles = {
     justify-content: space-between;
     align-items: center;
   `,
-  
-  ".big" : `
+
+  ".big": `
       font-size: 1.1em;
-    `
-  ,
-  ".big b" : `margin-top: 5px;`,
-  ".row" : `
+    `,
+  ".big b": `margin-top: 5px;`,
+  ".row": `
     color: white;
     width: 100%;
     height: 40px;
@@ -60,35 +59,35 @@ const musicPlayerStyles = {
     justify-content: space-between;
     align-items: center;
   `,
-  "svg" : `
+  "svg": `
     margin-left: 10px;
   `,
-  ".column" : `
+  ".column": `
     width: auto;
     height: 20;
     text-align: center;
   `,
-  ".column > p" : `
+  ".column > p": `
     margin-top: 6px;
     margin-bottom: -2px;
   `,
-  ".right" : `
+  ".right": `
     width: 10%;
     height: 100%;
   `,
-  "img" : `
+  "img": `
     width: 250px;
     height: 250px;
     transform: translateY(-15px);
     border: 4px solid rgba(14, 11, 15, 1);
   `,
-  "#controls" : `
+  "#controls": `
     width: 100%;
     height: 34%;
     color: white;
     transform: translateY(-20px);
   `,
-  "#duration" : `
+  "#duration": `
       width: 100%;
       height: 27%;
       display: flex;
@@ -97,25 +96,33 @@ const musicPlayerStyles = {
       align-items: space-around;
       margin-top: 15px;
     `,
-  ".out" : `
+  ".out": `
     width: 90%;
     height: 8px;
     background: white;
     border-radius: 4px;
     margin: 0 auto;
   `,
-  ".in" : `
+  ".in": `
     height: 8px;
     max-width: 100%;
     background: teal;
     border-radius: inherit;
   `,
-  "#duration .row" : "width: 90%; margin: 0 auto;",
-  ".cont" : "font-size: 32px; width: 90%; margin: 0 auto;"
+  "#duration .row": "width: 90%; margin: 0 auto;",
+  ".cont": "font-size: 32px; width: 90%; margin: 0 auto;",
+  "@media (min-width: 768px)": {
+    ".container": `
+      width: 80%;
+      height: 90%;
+      top: 5%;
+      left: 10%;
+     `
+  }
 };
 
 const musicListStyles = {
-  ".header" : `
+  ".header": `
     width: 100%;
     height: 50px;
     background: inherit;
@@ -127,11 +134,11 @@ const musicListStyles = {
     top: 0;
     color: white;
   `,
-  "img" : `
+  "img": `
     width: 60px;
     height: 60px;
   `,
-  "#container" : `
+  "#container": `
     width: 100%;
     height: 80px;
     background: inherit;
@@ -141,23 +148,26 @@ const musicListStyles = {
     align-items: center;
     margin-top: 5px;
   `,
-  "img" : `
+  "img": `
     width: 50px;
     height: 50px;
   `,
-  ".info" : `
-    width: 60%;
+  ".info": `
+    width: 70%;
     height: 100%;
     font-size: 0.8em;
   `,
-  ".hr" : `
+  ".hr": `
     width: 100%;
     height: 1px;
-  `
+  `,
+  "@media (min-width: 768px)": {
+    ".info": `width: 85%;`
+  }
 };
 
 const bottomBarStyles = {
-  "#container" : `
+  "#container": `
     width: 100%;
     height: 70px;
     background: inherit;
@@ -170,15 +180,18 @@ const bottomBarStyles = {
     position: fixed;
     bottom: -1px;
   `,
-  "img" : `
+  "img": `
     width: 50px;
     height: 50px;
   `,
-  ".info" : `
+  ".info": `
     width: 60%;
     height: 100%;
     font-size: 0.8em;
   `,
+    "@media (min-width: 768px)" : {
+    ".info" : `width: 75%;`
+  }
 };
 
 

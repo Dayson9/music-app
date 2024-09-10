@@ -13,7 +13,7 @@ var bottomBar = new QComponent("#bottom-bar", {
   },
   template: () => {
     return `
-      <div id='container' color='white' onclick='{
+      <div id='container' class='glass' color='white' onclick='{
       if(e.target.className !== "" && e.target.className !== "ring")
          slide(-1);
       }'>
