@@ -15,7 +15,6 @@ music = musicPlayer;
 bottom = bottomBar;
 
 
-
 musicDataList.forEach(({img, audio, artiste, title }, i) => {
   musicList.renderWith({
     i: i,

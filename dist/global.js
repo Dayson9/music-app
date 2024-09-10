@@ -102,6 +102,7 @@ function nextPrev(num) {
 
   playMusic(i);
   animate(true);
+  vibrateDevice();
 }
 
 
@@ -173,6 +174,13 @@ function playMusic(i) {
   }, 150);
 }
 
+function vibrateDevice() {
+  if (navigator.vibrate) {
+    navigator.vibrate(30); // Vibrate for 1 second
+  } else {
+    console.log("Your browser does not support the vibration API.");
+  }
+}
 
 // Whenever music ends, play the next one.
 audio.onended = () => nextPrev(1);
