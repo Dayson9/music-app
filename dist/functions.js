@@ -121,7 +121,7 @@ function playMusic(i) {
     bottom.data.pausePlayIcon = "| |";
     audio.play();
     update();
-  }, 350);
+  }, 850);
 }
 
 function vibrateDevice() {
