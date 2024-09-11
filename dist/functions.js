@@ -69,6 +69,8 @@ function pausePlay() {
   }
 }
 
+  alert('Welcome! 💻');
+  
 function seek(e) { 
   const xCoord = e.clientX,
     width = window.innerWidth,
