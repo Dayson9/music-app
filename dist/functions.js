@@ -69,7 +69,6 @@ function pausePlay() {
   }
 }
 
-  alert('Welcome! 💻');
   
 function seek(e) { 
   const xCoord = e.clientX,
