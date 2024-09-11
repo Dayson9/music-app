@@ -69,7 +69,7 @@ function pausePlay() {
   }
 }
 
-function seek(e) {
+function seek(e) { 
   const xCoord = e.clientX,
     width = window.innerWidth,
     middle = width / 2,
