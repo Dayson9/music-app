@@ -4,7 +4,7 @@ const loaderStyles = {
     height: 40px;
     background: white;
     margin: 10px;
-    animation: wave 0.8s alternate infinite;
+    animation: wave 0.7s alternate infinite;
     border-radius: 20px;
   `,
 
