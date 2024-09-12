@@ -69,8 +69,8 @@ function pausePlay() {
   }
 }
 
-  
-function seek(e) { 
+
+function seek(e) {
   const xCoord = e.clientX,
     width = window.innerWidth,
     middle = width / 2,
@@ -129,5 +129,27 @@ function vibrateDevice() {
     navigator.vibrate([25, 25, 25]); // Vibrate 25ms 3 times in a row
   } else {
     console.log("Your browser does not support the vibration API.");
+  }
+}
+
+const elem = document.documentElement;
+
+/* View in fullscreen */
+function openFullscreen() {
+  if (!fullScreenEnabled) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+      fullScreenEnabled = true;
+    } else if (elem.webkitRequestFullscreen) {
+      /* Safari */
+      elem.webkitRequestFullscreen();
+      fullScreenEnabled = true;
+    } else if (elem.msRequestFullscreen) {
+      /* IE11 */
+      elem.msRequestFullscreen();
+      fullScreenEnabled = true;
+    } else {
+      console.log("Fullscreen API not supported");
+    }
   }
 }

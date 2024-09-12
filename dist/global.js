@@ -1,5 +1,5 @@
 var timeUpdate, music, bottom, index = 0,
-  animation,
+  animation, fullScreenEnabled = false,
   audio = new Audio("./audios/Asake_Wave.mp3");
 
 const colors = ["wheat", "aliceblue", "skyblue", "cornflowerblue", "lightblue", "dodgerblue", "crimson", "red", "orangered", "orange", "gold", "yellow", "lightyellow", "green", "lightgreen", "lemon", "cyan", "skyblue", "lightblue", "cornflowerblue", "dodgerblue", "pink", "orchid", "hotpink", "purple", "darkorchid", "indigo", "violet"];
