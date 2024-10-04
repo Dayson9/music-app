@@ -22,7 +22,7 @@ const loader = new QComponent("#loaderContainer", {
   run: () => {
     setTimeout(() => {
       this.data.transform = "100%";
-    }, 5000);
+    }, 10000);
 
   }
 
